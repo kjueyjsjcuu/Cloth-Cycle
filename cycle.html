@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLOTH CYCLE | Track Donation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #74b9ff, #a29bfe);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      color: #0984e3;
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #0984e3;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 50px 20px;
+    }
+
+    .track-box {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .track-box h2 {
+      color: #0984e3;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .track-box input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #0984e3;
+      border-radius: 8px;
+      outline: none;
+      margin-bottom: 15px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .track-box button {
+      background: #0984e3;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .track-box button:hover {
+      background: #74b9ff;
+    }
+
+    .status-box {
+      margin-top: 25px;
+      padding: 15px;
+      border-radius: 8px;
+      background: #f7f9fc;
+      display: none;
+    }
+
+    .status-box p {
+      font-size: 18px;
+      color: #0984e3;
+      font-weight: 500;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0984e3;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>CLOTH CYCLE</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#">Donate</a>
+      <a href="#">Track</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="track-box">
+      <h2>Track Your Donation</h2>
+      <input type="text" id="donationId" placeholder="Enter Donation ID">
+      <button onclick="trackDonation()">Track Now</button>
+
+      <div class="status-box" id="statusBox">
+        <p id="statusText"></p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 CLOTH CYCLE | Tracking Made Simple</p>
+  </footer>
+
+  <script>
+    function trackDonation() {
+      const donationId = document.getElementById('donationId').value.trim();
+      const statusBox = document.getElementById('statusBox');
+      const statusText = document.getElementById('statusText');
+
+      if (donationId === "") {
+        alert("Please enter your donation ID!");
+        return;
+      }
+
+      // Simulated tracking statuses
+      const statuses = [
+        "Donation Registered ✅",
+        "Pickup Scheduled 🚚",
+        "Picked Up by Delivery Partner 📦",
+        "Delivered to NGO 🏠",
+        "Donation Received by Needy Person ❤️"
+      ];
+
+      // Simulate random status
+      const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+
+      statusBox.style.display = "block";
+      statusText.textContent = `Current Status: ${randomStatus}`;
+    }
+  </script>
+
+</body>
+</html>
